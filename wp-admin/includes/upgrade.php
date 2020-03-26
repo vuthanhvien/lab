@@ -455,7 +455,7 @@ Commenter avatars come from <a href="https://gravatar.com">Gravatar</a>.'
 					0 => 'archives-2',
 					1 => 'categories-2',
 					2 => 'meta-2',
-				),
+				)
 				'array_version'       => 3,
 			)
 		);
