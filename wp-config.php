@@ -79,6 +79,8 @@ $table_prefix  = 'wp_';
  */
 define('WP_DEBUG', false);
 
+define('FS_METHOD','direct');
+
 /* Đó là tất cả thiết lập, ngưng sửa từ phần này trở xuống. Chúc bạn viết blog vui vẻ. */
 
 /** Đường dẫn tuyệt đối đến thư mục cài đặt WordPress. */

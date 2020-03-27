@@ -992,8 +992,8 @@ section {
 .section-inner {
 	margin-left: auto;
 	margin-right: auto;
-	max-width: 120rem;
-	width: calc(100% - 4rem);
+	max-width: 1170xp;
+	width: 100%;
 }
 
 .section-inner.max-percentage {
@@ -1358,8 +1358,8 @@ ul.social-icons li {
 }
 
 .header-inner {
-	max-width: 168rem;
-	padding: 3.15rem 0;
+	/* max-width: 168rem; */
+	/* padding: 3.15rem 0; */
 	z-index: 100;
 }
 
@@ -4780,7 +4780,8 @@ a.to-the-top > * {
 	}
 
 	.section-inner {
-		width: calc(100% - 8rem);
+		/* width: calc(100% - 8rem); */
+		max-width: 1170px;
 	}
 
 
