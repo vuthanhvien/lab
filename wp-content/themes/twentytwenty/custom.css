@@ -129,6 +129,7 @@ body #site-footer {
 #top-footer h2 {
     font-size: 22px;
     color: #eee;
+    margin-top: 0;
 }
 
 #top-footer aside {
@@ -155,4 +156,35 @@ body #site-footer {
 
 #top-footer .socials li a {
     color: #eee;
+}
+#top-footer .post {
+    height:80px;
+    position: relative;
+    padding: 10px 0;
+    display: block;
+}
+#top-footer .post img{
+    width: 60px;
+    height:  60px;
+    position: absolute;
+    top: 10px;
+    object-fit: cover;
+}
+
+#top-footer .post h5{
+    color: #6F7885;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    margin-left:80px;
+    margin-top: 0;
+}
+
+#top-footer .post p{
+    color: #0D87D0;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 12px;
+    margin-left:80px;
+    text-transform: uppercase;
 }

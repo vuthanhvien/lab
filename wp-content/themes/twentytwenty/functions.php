@@ -767,3 +767,46 @@ function twentytwenty_get_elements_array() {
 	*/
 	return apply_filters( 'twentytwenty_get_elements_array', $elements );
 }
+
+
+
+//Khởi tạo function cho shortcode
+function create_shortcode_posts($args, $content) {
+	$post_type = $args->type;
+	$limit = $args->limit;
+	$query = array(  
+        'post_type' => $post_type ? $post_type : array('post', 'news', 'libraries', 'podcasts', 'event'),
+        'post_status' => 'publish',
+        'posts_per_page' => $limit ? $limit : 3,
+    );
+
+	$the_query = new WP_Query( $query ); 
+	
+	$html = '';
+
+        
+	if ( $the_query->have_posts() ) :
+		while ( $the_query->have_posts() ) : $the_query->the_post();
+			$html .= '<a class="post" href="'.get_the_permalink() .'">';
+
+			$featured_img_url = get_the_post_thumbnail(); 
+
+
+			$html .= $featured_img_url; 
+
+
+			$html .= '<h5>'. get_the_title().'</h5>'; 
+			$html .= '<p>Min read: '. get_field('min-read').'</p>'; 
+			
+			$html .= '</a>'; 
+		  // Do Stuff
+		endwhile;
+		endif;
+
+
+	return $html;
+}
+//Tạo shortcode tên là [test_shortcode] và sẽ thực thi code từ function create_shortcode
+add_shortcode( 'posts', 'create_shortcode_posts' );
+
+
