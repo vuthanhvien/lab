@@ -19,7 +19,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" >
 
 		<link rel="profile" href="https://gmpg.org/xfn/11">
-
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 		<link rel="stylesheet" id="twentytwenty-style-css" href="http://192.168.64.2/wp-content/themes/twentytwenty/custom.css?ver=1.1" type="text/css" media="all">
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap&subset=vietnamese" rel="stylesheet">
 		<?php wp_head(); ?>
@@ -35,12 +35,11 @@
 		<header id="site-header" class="header-footer-group" role="banner">
 			<div class="header-top">
 			<div class="section-inner">
-				<a href="/en/">English</a>
-				<a href="/">Tiếng Việt</a>
+				<a href="/">English</a>
+				<a href="/vi/">Tiếng Việt</a>
 
+				<a class="button" href="/login">Login</a>
 				<a class="button" href="/subscrice">Subscrice</a>
-				<a class="button" href="/subscrice">Login</a>
-
 			</div>
 			</div>
 

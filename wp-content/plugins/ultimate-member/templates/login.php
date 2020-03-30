@@ -1,8 +1,10 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit; ?>
 
-<div class="um <?php echo esc_attr( $this->get_class( $mode ) ); ?> um-<?php echo esc_attr( $form_id ); ?>">
+<div class="login <?php echo esc_attr( $this->get_class( $mode ) ); ?> um-<?php echo esc_attr( $form_id ); ?>">
 
-	<div class="um-form">
+	<div class="section-inner ">
+
+
 
 		<form method="post" action="" autocomplete="off">
 
@@ -131,7 +133,8 @@
 			 * }
 			 * ?>
 			 */
-			do_action( 'um_after_form', $args ); ?>
+			do_action( 'um_after_form', $args );
+			 ?>
 
 		</form>
 

@@ -125,7 +125,7 @@
 
 	<div class="post-inner" id="post-inner">
 
-		<div class="entry-content">
+		<div class="">
 
 		<?php
 		the_content();
