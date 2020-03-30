@@ -18,7 +18,6 @@ get_header();
 ?>
 
 <main id="site-content" role="main">
-
 	<?php
 
 	$archive_title    = '';
@@ -50,8 +49,8 @@ get_header();
 	} elseif ( ! is_home() ) {
 		$archive_title    = get_the_archive_title();
 		$archive_subtitle = get_the_archive_description();
+		
 	}
-
 	if ( $archive_title || $archive_subtitle ) {
 		?>
 

@@ -2324,7 +2324,7 @@ function _wp_upload_dir( $time = null ) {
 			/*
 			 * If ms-files rewriting is disabled (networks created post-3.5), it is fairly
 			 * straightforward: Append sites/%d if we're not on the main site (for post-MU
-			 * networks). (The extra directory prevents a four-digit ID from conflicting with
+			 * networks). (The extra directory prevent a four-digit ID from conflicting with
 			 * a year-based directory for the main site. But if a MU-era network has disabled
 			 * ms-files rewriting manually, they don't need the extra directory, as they never
 			 * had wp-content/uploads for the main site.)
@@ -6526,7 +6526,7 @@ function wp_delete_file_from_directory( $file, $directory ) {
 /**
  * Outputs a small JS snippet on preview tabs/windows to remove `window.name` on unload.
  *
- * This prevents reusing the same tab for a preview when the user has navigated away.
+ * This prevent reusing the same tab for a preview when the user has navigated away.
  *
  * @since 4.3.0
  *
@@ -6580,7 +6580,7 @@ function mysql_to_rfc3339( $date_string ) {
 /**
  * Attempts to raise the PHP memory limit for memory intensive processes.
  *
- * Only allows raising the existing limit and prevents lowering it.
+ * Only allows raising the existing limit and prevent lowering it.
  *
  * @since 4.6.0
  *
@@ -6874,7 +6874,7 @@ All at ###SITENAME###
 /**
  * Return an anonymized IPv4 or IPv6 address.
  *
- * @since 4.9.6 Abstracted from `WP_Community_Events::get_unsafe_client_ip()`.
+ * @since 4.9.6 Abstracted from `WP_Community_event::get_unsafe_client_ip()`.
  *
  * @param  string $ip_addr        The IPv4 or IPv6 address to be anonymized.
  * @param  bool   $ipv6_fallback  Optional. Whether to return the original IPv6 address if the needed functions
@@ -7404,15 +7404,15 @@ function wp_fuzzy_number_match( $expected, $actual, $precision = 1 ) {
 
  
 
-function create_custom_type_libraries()
+function create_custom_type_library()
 {
  
     /*
      * Biến $label để chứa các text liên quan đến tên hiển thị của Post Type trong Admin
      */
     $label = array(
-        'name' => 'Libraries', //Tên post type dạng số nhiều
-        'singular_name' => 'Libraries' //Tên post type dạng số ít
+        'name' => 'library', //Tên post type dạng số nhiều
+        'singular_name' => 'library' //Tên post type dạng số ít
     );
  
     /*
@@ -7420,7 +7420,7 @@ function create_custom_type_libraries()
      */
     $args = array(
         'labels' => $label, //Gọi các label trong biến $label ở trên
-        'description' => 'Post type: Libraries', //Mô tả của post type
+        'description' => 'Post type: library', //Mô tả của post type
         'supports' => array(
             'title',
             'editor',
@@ -7432,7 +7432,7 @@ function create_custom_type_libraries()
             'revisions',
             'custom-fields'
         ), //Các tính năng được hỗ trợ trong post type
-        'taxonomies' => array( 'libraries_types', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
+        'taxonomies' => array( 'library_types', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
         'hierarchical' => false, //Cho phép phân cấp, nếu là false thì post type này giống như Post, true thì giống như Page
         'public' => true, //Kích hoạt post type
         'show_ui' => true, //Hiển thị khung quản trị như Post/Page
@@ -7449,11 +7449,11 @@ function create_custom_type_libraries()
 		'menu_icon' => 'dashicons-playlist-video'
     );
  
-    register_post_type('libraries', $args); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
+    register_post_type('library', $args); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
  
 }
 /* Kích hoạt hàm tạo custom post type */
-add_action('init', 'create_custom_type_libraries');
+add_action('init', 'create_custom_type_library');
 
 
 function create_custom_type_insiders()
@@ -7508,15 +7508,15 @@ function create_custom_type_insiders()
 add_action('init', 'create_custom_type_insiders');
 
 
-function create_custom_type_events()
+function create_custom_type_event()
 {
  
     /*
      * Biến $label để chứa các text liên quan đến tên hiển thị của Post Type trong Admin
      */
     $label = array(
-        'name' => 'Events', //Tên post type dạng số nhiều
-        'singular_name' => 'Events' //Tên post type dạng số ít
+        'name' => 'event', //Tên post type dạng số nhiều
+        'singular_name' => 'event' //Tên post type dạng số ít
     );
  
     /*
@@ -7524,7 +7524,7 @@ function create_custom_type_events()
      */
     $args = array(
         'labels' => $label, //Gọi các label trong biến $label ở trên
-        'description' => 'Post type: Events', //Mô tả của post type
+        'description' => 'Post type: event', //Mô tả của post type
         'supports' => array(
             'title',
             'editor',
@@ -7536,7 +7536,7 @@ function create_custom_type_events()
             'revisions',
             'custom-fields'
         ), //Các tính năng được hỗ trợ trong post type
-        'taxonomies' => array( 'events_types', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
+        'taxonomies' => array( 'event_types', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
         'hierarchical' => false, //Cho phép phân cấp, nếu là false thì post type này giống như Post, true thì giống như Page
         'public' => true, //Kích hoạt post type
         'show_ui' => true, //Hiển thị khung quản trị như Post/Page
@@ -7553,22 +7553,22 @@ function create_custom_type_events()
 		'menu_icon' => 'dashicons-calendar-alt'
     );
  
-    register_post_type('events', $args); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
+    register_post_type('event', $args); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
  
 }
 /* Kích hoạt hàm tạo custom post type */
-add_action('init', 'create_custom_type_events');
+add_action('init', 'create_custom_type_event');
 
 
-function create_custom_type_podcasts()
+function create_custom_type_podcast()
 {
  
     /*
      * Biến $label để chứa các text liên quan đến tên hiển thị của Post Type trong Admin
      */
     $label = array(
-        'name' => 'Podcasts', //Tên post type dạng số nhiều
-        'singular_name' => 'Podcasts' //Tên post type dạng số ít
+        'name' => 'podcast', //Tên post type dạng số nhiều
+        'singular_name' => 'podcast' //Tên post type dạng số ít
     );
  
     /*
@@ -7576,7 +7576,7 @@ function create_custom_type_podcasts()
      */
     $args = array(
         'labels' => $label, //Gọi các label trong biến $label ở trên
-        'description' => 'Post type: podcasts', //Mô tả của post type
+        'description' => 'Post type: podcast', //Mô tả của post type
         'supports' => array(
             'title',
             'editor',
@@ -7588,7 +7588,7 @@ function create_custom_type_podcasts()
             'revisions',
             'custom-fields'
         ), //Các tính năng được hỗ trợ trong post type
-        'taxonomies' => array( 'podcasts_types', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
+        'taxonomies' => array( 'podcast_types', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
         'hierarchical' => false, //Cho phép phân cấp, nếu là false thì post type này giống như Post, true thì giống như Page
         'public' => true, //Kích hoạt post type
         'show_ui' => true, //Hiển thị khung quản trị như Post/Page
@@ -7605,9 +7605,10 @@ function create_custom_type_podcasts()
 		'menu_icon' => 'dashicons-playlist-audio'
     );
  
-    register_post_type('podcasts', $args); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
+    register_post_type('podcast', $args); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
  
 }
+add_action('init', 'create_custom_type_podcast');
 
 
 
@@ -7639,7 +7640,7 @@ function create_custom_type_news()
             'revisions',
             'custom-fields'
         ), //Các tính năng được hỗ trợ trong post type
-        'taxonomies' => array( 'news_types', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
+		'taxonomies' => array( 'podcast_types', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
         'hierarchical' => false, //Cho phép phân cấp, nếu là false thì post type này giống như Post, true thì giống như Page
         'public' => true, //Kích hoạt post type
         'show_ui' => true, //Hiển thị khung quản trị như Post/Page
@@ -7649,10 +7650,11 @@ function create_custom_type_news()
         'menu_position' => 5, //Thứ tự vị trí hiển thị trong menu (tay trái)
         'menu_icon' => '', //Đường dẫn tới icon sẽ hiển thị
         'can_export' => true, //Có thể export nội dung bằng Tools -> Export
-        'has_archive' => true, //Cho phép lưu trữ (month, date, year)
+        'has_archive' => 'news', //Cho phép lưu trữ (month, date, year)
         'exclude_from_search' => false, //Loại bỏ khỏi kết quả tìm kiếm
         'publicly_queryable' => true, //Hiển thị các tham số trong query, phải đặt true
         'capability_type' => 'post' ,
+		'rewrite' => true,
 		'menu_icon' => 'dashicons-welcome-widgets-menus'
     );
  
@@ -7666,15 +7668,15 @@ add_action('init', 'create_custom_type_news');
 
 
 
-function create_custom_type_jobs()
+function create_custom_type_job()
 {
  
     /*
      * Biến $label để chứa các text liên quan đến tên hiển thị của Post Type trong Admin
      */
     $label = array(
-        'name' => 'Jobs', //Tên post type dạng số nhiều
-        'singular_name' => 'Jobs' //Tên post type dạng số ít
+        'name' => 'Job', //Tên post type dạng số nhiều
+        'singular_name' => 'Job' //Tên post type dạng số ít
     );
  
     /*
@@ -7682,7 +7684,7 @@ function create_custom_type_jobs()
      */
     $args = array(
         'labels' => $label, //Gọi các label trong biến $label ở trên
-        'description' => 'Post type: Jobs', //Mô tả của post type
+        'description' => 'Post type: job', //Mô tả của post type
         'supports' => array(
             'title',
             'editor',
@@ -7694,7 +7696,7 @@ function create_custom_type_jobs()
             'revisions',
             'custom-fields'
         ), //Các tính năng được hỗ trợ trong post type
-        'taxonomies' => array( 'jobs_types', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
+        'taxonomies' => array( 'job_types', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
         'hierarchical' => false, //Cho phép phân cấp, nếu là false thì post type này giống như Post, true thì giống như Page
         'public' => true, //Kích hoạt post type
         'show_ui' => true, //Hiển thị khung quản trị như Post/Page
@@ -7708,12 +7710,13 @@ function create_custom_type_jobs()
         'exclude_from_search' => false, //Loại bỏ khỏi kết quả tìm kiếm
         'publicly_queryable' => true, //Hiển thị các tham số trong query, phải đặt true
         'capability_type' => 'post' ,
-		'menu_icon' => 'dashicons-clipboard'
+		'menu_icon' => 'dashicons-clipboard',
+		'rewrite' => true
     );
  
-    register_post_type('jobs', $args); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
+    register_post_type('job', $args); //Tạo post type với slug tên là sanpham và các tham số trong biến $args ở trên
  
 }
 /* Kích hoạt hàm tạo custom post type */
-add_action('init', 'create_custom_type_jobs');
+add_action('init', 'create_custom_type_job');
 
