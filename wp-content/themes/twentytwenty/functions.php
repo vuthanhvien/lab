@@ -770,14 +770,18 @@ function twentytwenty_get_elements_array() {
 
 
 
-//Khởi tạo function cho shortcode
-function create_shortcode_posts($args, $content) {
-	$post_type = $args->type;
-	$limit = $args->limit;
+function create_shortcode_posts($args , $content) {
+	if(!$args ) {$args  = [];}
+	$post_type = $args['type'];
+	$limit = $args['limit'];
+	$order = $args['order'];
+	$orderby = $args['orderby'];
 	$query = array(  
-        'post_type' => $post_type ? $post_type : array('post', 'news', 'libraries', 'podcasts', 'event'),
+        'post_type' => $post_type ? $post_type : array('news', 'library', 'podcast', 'event', 'job', 'insiders'),
         'post_status' => 'publish',
-        'posts_per_page' => $limit ? $limit : 3,
+		'posts_per_page' => $limit ? $limit : 3,
+		'order'=> $order ? $order : 'DESC',
+		'orderby'=> $orderby ? $orderby : 'date',
     );
 
 	$the_query = new WP_Query( $query ); 
@@ -787,26 +791,21 @@ function create_shortcode_posts($args, $content) {
         
 	if ( $the_query->have_posts() ) :
 		while ( $the_query->have_posts() ) : $the_query->the_post();
-			$html .= '<a class="post" href="'.get_the_permalink() .'">';
-
 			$featured_img_url = get_the_post_thumbnail(); 
 
-
-			$html .= $featured_img_url; 
-
-
+			$html .= '<a class="post" href="'.get_the_permalink() .'">';
+			$html .= '<div class="img">'.$featured_img_url.'</div>'; 
+			$html .= '<div class="content">';
 			$html .= '<h5>'. get_the_title().'</h5>'; 
 			$html .= '<p>Min read: '. get_field('min-read').'</p>'; 
-			
+			$html .= '</div>'; 
 			$html .= '</a>'; 
-		  // Do Stuff
 		endwhile;
 		endif;
 
 
 	return $html;
 }
-//Tạo shortcode tên là [test_shortcode] và sẽ thực thi code từ function create_shortcode
 add_shortcode( 'posts', 'create_shortcode_posts' );
 
 

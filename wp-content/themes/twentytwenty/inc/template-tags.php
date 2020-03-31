@@ -212,7 +212,7 @@ function twentytwenty_edit_post_link( $link, $post_id, $text ) {
 		),
 		get_the_title( $post_id )
 	);
-	return '';
+	// return '';
 	return '<div class="post-meta-wrapper post-meta-edit-link-wrapper"><ul class="post-meta"><li class="post-edit meta-wrapper"><span class="meta-icon">' . twentytwenty_get_theme_svg( 'edit' ) . '</span><span class="meta-text"><a href="' . esc_url( $edit_url ) . '">' . $text . '</a></span></li></ul><!-- .post-meta --></div><!-- .post-meta-wrapper -->';
 
 }

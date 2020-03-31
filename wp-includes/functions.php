@@ -7411,8 +7411,8 @@ function create_custom_type_library()
      * Biến $label để chứa các text liên quan đến tên hiển thị của Post Type trong Admin
      */
     $label = array(
-        'name' => 'library', //Tên post type dạng số nhiều
-        'singular_name' => 'library' //Tên post type dạng số ít
+        'name' => 'Library', //Tên post type dạng số nhiều
+        'singular_name' => 'Library' //Tên post type dạng số ít
     );
  
     /*
@@ -7442,7 +7442,7 @@ function create_custom_type_library()
         'menu_position' => 5, //Thứ tự vị trí hiển thị trong menu (tay trái)
         'menu_icon' => '', //Đường dẫn tới icon sẽ hiển thị
         'can_export' => true, //Có thể export nội dung bằng Tools -> Export
-        'has_archive' => true, //Cho phép lưu trữ (month, date, year)
+        'has_archive' => false, //Cho phép lưu trữ (month, date, year)
         'exclude_from_search' => false, //Loại bỏ khỏi kết quả tìm kiếm
         'publicly_queryable' => true, //Hiển thị các tham số trong query, phải đặt true
 		'capability_type' => 'post', //
@@ -7463,8 +7463,8 @@ function create_custom_type_insiders()
      * Biến $label để chứa các text liên quan đến tên hiển thị của Post Type trong Admin
      */
     $label = array(
-        'name' => 'insiders', //Tên post type dạng số nhiều
-        'singular_name' => 'insiders' //Tên post type dạng số ít
+        'name' => 'Insiders', //Tên post type dạng số nhiều
+        'singular_name' => 'Insiders' //Tên post type dạng số ít
     );
  
     /*
@@ -7494,7 +7494,7 @@ function create_custom_type_insiders()
         'menu_position' => 5, //Thứ tự vị trí hiển thị trong menu (tay trái)
         'menu_icon' => '', //Đường dẫn tới icon sẽ hiển thị
         'can_export' => true, //Có thể export nội dung bằng Tools -> Export
-        'has_archive' => true, //Cho phép lưu trữ (month, date, year)
+        'has_archive' => false, //Cho phép lưu trữ (month, date, year)
         'exclude_from_search' => false, //Loại bỏ khỏi kết quả tìm kiếm
         'publicly_queryable' => true, //Hiển thị các tham số trong query, phải đặt true
         'capability_type' => 'post' ,
@@ -7515,8 +7515,8 @@ function create_custom_type_event()
      * Biến $label để chứa các text liên quan đến tên hiển thị của Post Type trong Admin
      */
     $label = array(
-        'name' => 'event', //Tên post type dạng số nhiều
-        'singular_name' => 'event' //Tên post type dạng số ít
+        'name' => 'Event', //Tên post type dạng số nhiều
+        'singular_name' => 'Event' //Tên post type dạng số ít
     );
  
     /*
@@ -7546,7 +7546,7 @@ function create_custom_type_event()
         'menu_position' => 5, //Thứ tự vị trí hiển thị trong menu (tay trái)
         'menu_icon' => '', //Đường dẫn tới icon sẽ hiển thị
         'can_export' => true, //Có thể export nội dung bằng Tools -> Export
-        'has_archive' => true, //Cho phép lưu trữ (month, date, year)
+        'has_archive' => false, //Cho phép lưu trữ (month, date, year)
         'exclude_from_search' => false, //Loại bỏ khỏi kết quả tìm kiếm
         'publicly_queryable' => true, //Hiển thị các tham số trong query, phải đặt true
         'capability_type' => 'post' ,
@@ -7567,8 +7567,8 @@ function create_custom_type_podcast()
      * Biến $label để chứa các text liên quan đến tên hiển thị của Post Type trong Admin
      */
     $label = array(
-        'name' => 'podcast', //Tên post type dạng số nhiều
-        'singular_name' => 'podcast' //Tên post type dạng số ít
+        'name' => 'Podcast', //Tên post type dạng số nhiều
+        'singular_name' => 'Podcast' //Tên post type dạng số ít
     );
  
     /*
@@ -7598,7 +7598,7 @@ function create_custom_type_podcast()
         'menu_position' => 5, //Thứ tự vị trí hiển thị trong menu (tay trái)
         'menu_icon' => '', //Đường dẫn tới icon sẽ hiển thị
         'can_export' => true, //Có thể export nội dung bằng Tools -> Export
-        'has_archive' => true, //Cho phép lưu trữ (month, date, year)
+        'has_archive' => false, //Cho phép lưu trữ (month, date, year)
         'exclude_from_search' => false, //Loại bỏ khỏi kết quả tìm kiếm
         'publicly_queryable' => true, //Hiển thị các tham số trong query, phải đặt true
         'capability_type' => 'post' ,
@@ -7620,7 +7620,7 @@ function create_custom_type_news()
      */
     $label = array(
         'name' => 'News', //Tên post type dạng số nhiều
-        'singular_name' => 'New' //Tên post type dạng số ít
+        'singular_name' => 'News' //Tên post type dạng số ít
     );
  
     /*
@@ -7650,7 +7650,7 @@ function create_custom_type_news()
         'menu_position' => 5, //Thứ tự vị trí hiển thị trong menu (tay trái)
         'menu_icon' => '', //Đường dẫn tới icon sẽ hiển thị
         'can_export' => true, //Có thể export nội dung bằng Tools -> Export
-        'has_archive' => 'news', //Cho phép lưu trữ (month, date, year)
+        'has_archive' => false, //Cho phép lưu trữ (month, date, year)
         'exclude_from_search' => false, //Loại bỏ khỏi kết quả tìm kiếm
         'publicly_queryable' => true, //Hiển thị các tham số trong query, phải đặt true
         'capability_type' => 'post' ,
@@ -7706,7 +7706,7 @@ function create_custom_type_job()
         'menu_position' => 5, //Thứ tự vị trí hiển thị trong menu (tay trái)
         'menu_icon' => '', //Đường dẫn tới icon sẽ hiển thị
         'can_export' => true, //Có thể export nội dung bằng Tools -> Export
-        'has_archive' => true, //Cho phép lưu trữ (month, date, year)
+        'has_archive' => false, //Cho phép lưu trữ (month, date, year)
         'exclude_from_search' => false, //Loại bỏ khỏi kết quả tìm kiếm
         'publicly_queryable' => true, //Hiển thị các tham số trong query, phải đặt true
         'capability_type' => 'post' ,
