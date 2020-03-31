@@ -809,3 +809,17 @@ function create_shortcode_posts($args , $content) {
 add_shortcode( 'posts', 'create_shortcode_posts' );
 
 
+
+
+
+
+function create_shortcode_signup($args , $content) {
+
+	$html  = 'signup';
+	return $html;
+}
+add_shortcode( 'signup', 'create_shortcode_signup' );
+
+
+
+

@@ -7720,3 +7720,129 @@ function create_custom_type_job()
 /* Kích hoạt hàm tạo custom post type */
 add_action('init', 'create_custom_type_job');
 
+
+
+/* Tự động chuyển đến một trang khác sau khi login */
+function my_login_redirect( $redirect_to, $request, $user ) {
+	//is there a user to check?
+	global $user;
+	if ( isset( $user->roles ) && is_array( $user->roles ) ) {
+			//check for admins
+			if ( in_array( 'administrator', $user->roles ) ) {
+					// redirect them to the default place
+					return admin_url();
+			} else {
+					return home_url();
+			}
+	} else {
+			return $redirect_to;
+	}
+}
+
+add_filter( 'login_redirect', 'my_login_redirect', 10, 3 );
+
+function redirect_login_page() {
+    $login_page  = home_url( '/login/' );
+    $page_viewed = basename($_SERVER['REQUEST_URI']);  
+ 
+    if( $page_viewed == "wp-login.php" && $_SERVER['REQUEST_METHOD'] == 'GET') {
+        wp_redirect($login_page);
+        exit;
+    }
+}
+add_action('init','redirect_login_page');
+
+
+/* Kiểm tra lỗi đăng nhập */
+function login_failed() {
+    $login_page  = home_url( '/login/' );
+    wp_redirect( $login_page . '?login=failed' );
+    exit;
+}
+add_action( 'wp_login_failed', 'login_failed' );  
+ 
+function verify_username_password( $user, $username, $password ) {
+    $login_page  = home_url( '/login/' );
+    if( $username == "" || $password == "" ) {
+        wp_redirect( $login_page . "?login=empty" );
+        exit;
+    }
+}
+add_filter( 'authenticate', 'verify_username_password', 1, 3);
+
+
+function hide_admin_bar(){ return false; }
+add_filter( 'show_admin_bar', 'hide_admin_bar' );
+
+
+add_filter( 'redirect_canonical', 'custom_disable_redirect_canonical' );
+function custom_disable_redirect_canonical( $redirect_url ) {
+    if ( is_paged() && is_singular() ) $redirect_url = false; 
+    return $redirect_url; 
+}
+
+
+
+function kv_forgot_password_reset_email($user_input) {
+	global $wpdb; 
+	$user_data = get_user_by( 'email', $user_input ); 
+	$user_login = $user_data->user_login;
+	$user_email = $user_data->user_email;
+
+	$key = $wpdb->get_var("SELECT user_activation_key FROM $wpdb->users WHERE user_login ='".$user_login."'");
+	if(empty($key)) {
+	//generate reset key
+		$key = wp_generate_password(20, false);
+		$wpdb->update($wpdb->users, array('user_activation_key' => $key), array('user_login' => $user_login));
+	}
+
+	$message = __('Someone requested that the password be reset for the following account:') . "<br><br><br>";
+	$message .= get_option('siteurl') . "<br><br>";
+	$message .= sprintf(__('Username: %s'), $user_login) . "<br><br><br>";
+	$message .= __('If this was a error, just ignore this email as no action will be taken.') . "<br><br>";
+	$message .= __('To reset your password, visit the following address:') . "<br><br>";
+	$message .= '<a href="'.tg_validate_url() . "action=reset_pwd&key=$key&login=" . rawurlencode($user_login) . '" > '.tg_validate_url() . "action=reset_pwd&key=$key&login=" . rawurlencode($user_login) ."</a><br><br>";
+	$headers = array('Content-Type: text/html; charset=UTF-8');
+	if ( $message && !wp_mail($user_email, 'Password Reset Request', $message, $headers) ) {
+	$msg = false ; 
+	}
+	else $msg = true; 
+
+	return $msg ; 
+}
+
+function tg_validate_url() {
+	global $post;
+	$page_url = esc_url(get_permalink( $post->ID ));
+	$urlget = strpos($page_url, "?");
+	if ($urlget === false) {
+		$concate = "?";
+	} else {
+		$concate = "&";
+	}
+	return $page_url.$concate;
+}
+
+function kv_rest_setting_password($reset_key, $user_login, $user_email, $ID) {
+ 
+	$new_password = wp_generate_password(7, false); //you can change the number 7 to whatever length needed for the new password
+	wp_set_password( $new_password, $ID ); //mailing the reset details to the user
+
+	$message = __('Your new password for the account at:') . "<br><br>";
+	$message .= get_bloginfo('name') . "<br><br>";
+	$message .= sprintf(__('Username: %s'), $user_login) . "<br><br>";
+	$message .= sprintf(__('Password: %s'), $new_password) . "<br><br>";
+	$message .= __('You can now login with your new password at: ').'<a href="'.get_option('siteurl')."/login" .'" >' . get_option('siteurl')."/login" . "</a> <br><br>";
+
+	$headers = array('Content-Type: text/html; charset=UTF-8');
+	if ( $message && !wp_mail($user_email, 'Your New Password to login into eimams', $message, $headers) ) {
+		 $msg = false; 
+	} else {
+		 $msg = true; 
+		 $redirect_to = get_site_url()."/login?action=reset_success";
+		 wp_safe_redirect($redirect_to);
+		 exit();
+	} 
+
+	return $msg; 
+}

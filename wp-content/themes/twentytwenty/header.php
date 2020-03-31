@@ -9,6 +9,10 @@
  * @since 1.0.0
  */
 
+
+$user = wp_get_current_user();
+
+
 ?><!DOCTYPE html>
 
 <html class="no-js" <?php language_attributes(); ?>>
@@ -38,8 +42,21 @@
 				<a href="/">English</a>
 				<a href="/vi/">Tiếng Việt</a>
 
-				<a class="button" href="/login">Login</a>
-				<a class="button" href="/subscrice">Subscrice</a>
+				<?php 
+					if($user->exists()){
+						?>
+							<a class="avatar-profile" href="/profile"><?php echo get_avatar($user->ID); echo ' '; echo $user->user_login; ?> </a>
+							<a class="button" href="/subscrice">Subscrice</a>
+						<?php
+
+					}else{
+						?>
+							<a class="button" href="/login">Login</a>
+							<a class="button" href="/subscrice">Subscrice</a>
+						<?php
+
+					}
+				?>
 			</div>
 			</div>
 

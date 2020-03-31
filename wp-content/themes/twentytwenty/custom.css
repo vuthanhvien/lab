@@ -1,5 +1,6 @@
 html body {
     font-family: 'Montserrat', sans-serif;
+    background: #f4f4f4;
 }
 
 .header-top {
@@ -12,7 +13,22 @@ html body {
     font-size: 14px;
     display: inline-block;
     margin-right: 40px;
+    margin-top: 14px;
+}
+.header-top .avatar-profile{
+    float: right;
+    margin: 0 20px;
     margin-top: 18px;
+    color: white;
+}
+
+.header-top .avatar-profile img{
+    height:20px;
+    width:20px;
+    border-radius: 10px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
 }
 
 .header-top a.button {
@@ -121,6 +137,7 @@ body #site-footer {
     background-color: #2D323A;
 }
 
+
 #top-footer p {
     color: #6F7885;
     font-size: 16px;
@@ -158,16 +175,20 @@ body #site-footer {
     color: #eee;
 }
 #top-footer .post {
-    height:80px;
+    min-height:90px;
     position: relative;
-    padding: 10px 0;
+    padding: 20px 0;
     display: block;
+    border-bottom: 1px solid #444;
+}
+#top-footer .post:last-child{
+    border: 0;
 }
 #top-footer .post img{
     width: 60px;
     height:  60px;
     position: absolute;
-    top: 10px;
+    top: 20px;
     object-fit: cover;
 }
 
@@ -187,4 +208,197 @@ body #site-footer {
     margin-bottom: 12px;
     margin-left:80px;
     text-transform: uppercase;
+}
+#site-content .auth-page{
+ padding-bottom: 100px;
+ padding-top: 130px;
+ background-image: url(/assets/bg.jpg);
+ background-position: center;
+ background-size: cover;
+}
+
+#site-content .auth-page .form{
+    width: 50%;
+    margin-left: 50%;
+   
+    background: white;
+    border-radius: 10px;
+    padding: 50px 100px;
+}
+#site-content .auth-page .form h4{
+    text-align: center;
+    color:#393E46;
+    font-size: 22px;
+}
+
+#site-content .auth-page .form label{
+    display: none;
+}
+#site-content .auth-page .form .text-success{
+    font-size: 12px;
+    color: green;
+}
+
+#site-content .auth-page .form .text-error{
+    font-size: 12px;
+    color: rgb(167, 14, 14);
+}
+
+
+
+#site-content .auth-page #wp-submit{
+    background: #F9A64B;
+    color: white;
+    height: 66px;
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 40px;
+}
+
+#site-content .auth-page input{
+    height: 60px;
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 40px;
+}
+#site-content  .auth-redirect{
+    margin: 15px;
+}
+
+#site-content  .auth-redirect a{
+    display: inline-block;
+    width: 49%;
+    text-align: center;
+    color: #6F7885;
+    font-size: 14px;
+}
+#site-content  .auth-redirect a:nth-child(2){
+    color: #1A77F8;
+}
+
+#wpadminbar{
+    display: none;
+}
+
+.list-post{
+}
+.list-post .item{
+    background: white;
+    display: inline-block;
+    width: calc((100% - 60px )/ 3);
+    vertical-align: top;
+    margin-right: 30px;
+    margin-bottom: 40px;
+}
+.list-post .item:nth-child(3n){
+    margin-right: 0;
+}
+.list-post .item .image{
+    position: relative;
+    height: 200px;
+    background: #ccc;
+
+}
+.list-post .item .image img{
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.list-post .item .image .tag{
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+    background: #0D87D0;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 10px 30px;
+    color: white;
+}
+.list-post .item .title{
+    font-size: 18px;
+    color: #393E46;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 60px;
+    padding: 0 30px;
+    position: relative;
+
+}
+.list-post .item .title::before{
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 70px;
+    background: #0D87D0;
+    top: -20px;
+}
+
+.list-post .item .content{
+    font-size: 16px;
+    color: #6F7885;
+    margin: 0;
+    padding: 0 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    max-height: 100px;
+    overflow: hidden;
+}
+.list-post .item .item-footer{
+    background: #FAFAFA;
+    min-height: 60px;
+    display: flex;
+    padding: 0 30px;
+    align-items: center;
+}
+.list-post .item .item-footer p{
+  color: #6F7885;
+  font-size: 12px;
+  margin: 0;
+  margin-left: 10px;
+}
+
+.list-post .item .item-footer img{
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    object-position: center;
+    object-fit: cover;
+}
+.paging-navigation {
+    margin: 50px 0;
+    text-align: center;
+}
+.paging-navigation a{
+    display: inline-block;
+    padding: 14px;
+    color: #999999;
+    font-size: 14px;
+    min-width: 50px;
+    text-align: center;
+    font-weight: bold;
+    margin: 10px;
+}
+.paging-navigation a:hover{
+    color: #0D87D0;
+}
+
+.paging-navigation a.current-page{
+    border-radius: 5px;
+    border: 1px solid #D9D9D7;
+    color: #99999950;
+
+}
+.paging-navigation .next{
+    border-radius: 5px;
+    background: #D9D9D7;
+    padding: 14px 35px;
+}
+
+.paging-navigation .next:hover{
+    background: #0D87D0;
+    color: white;
 }
