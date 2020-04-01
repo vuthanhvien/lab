@@ -6,13 +6,31 @@ error_reporting(E_ALL & ~E_NOTICE & ~E_DEPRECATED);
  *
  * @author xonv
  */
+require('./wp-blog-header.php');
+ 
 require_once("./payment-config.php");
-
-
-$vnp_TxnRef = $_POST['order_id']; //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
-$vnp_OrderInfo = $_POST['order_desc'];
 $vnp_OrderType = $_POST['order_type'];
-$vnp_Amount = $_POST['amount'] * 100;
+
+
+$vnp_TxnRef = time(); //Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
+$vnp_OrderInfo = 'Thanh toán cho gói '.$vnp_OrderType;
+
+
+$options = Array();
+
+$options['trial_standard_1_month'] = get_option('trial_standard_1_month');
+$options['trial_premium_1_month'] = get_option('trial_premium_1_month');
+$options['premium_1_month'] = get_option('premium_1_month');
+$options['standard_1_month'] = get_option('standard_1_month');
+$options['standard_1_year'] = get_option('standard_1_year');
+$options['premium_1_year'] = get_option('premium_1_year');
+
+
+
+$amount = $options[$vnp_OrderType];
+
+
+$vnp_Amount = $amount * 23000 * 100;
 $vnp_Locale = $_POST['language'] || 'vn';
 // $vnp_BankCode = $_POST['bank_code'] || '';
 $vnp_BankCode =  '';

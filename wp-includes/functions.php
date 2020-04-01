@@ -7852,31 +7852,124 @@ function kv_rest_setting_password($reset_key, $user_login, $user_email, $ID) {
 add_action('admin_init', 'my_general_section');  
 function my_general_section() {  
     add_settings_section(  
-        'price_member', // Section ID 
-        'Information price membership', // Section Title
-        'my_section_options_callback', // Callback
+        'price_member_trial', // Section ID 
+        'Price trial', // Section Title
+        'price_member_trial_callback', // Callback
         'general' // What Page?  This makes the section show up on the General Settings Page
     );
 
     add_settings_field( // Option 1
         'trial_standard_1_month', // Option ID
-        'Trial standard first month', // Label
+        'Standard', // Label
         'my_textbox_callback', // !important - This is where the args go!
         'general', // Page it will be displayed (General Settings)
-        'price_member', // Name of our section
+        'price_member_trial', // Name of our section
         array( // The $args
             'trial_standard_1_month' // Should match Option ID
         )  
-    ); 
+	); 
+	
+	add_settings_field( // Option 1
+        'trial_premium_1_month', // Option ID
+        'Premium', // Label
+        'my_textbox_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed (General Settings)
+        'price_member_trial', // Name of our section
+        array( // The $args
+            'trial_premium_1_month' // Should match Option ID
+        )  
+	); 
+	
+
+
+	add_settings_section(  
+        'price_member_month', // Section ID 
+        'Price membership per month', // Section Title
+        'price_member_callback', // Callback
+        'general' // What Page?  This makes the section show up on the General Settings Page
+    );
+
+    add_settings_field( // Option 1
+        'standard_1_month', // Option ID
+        'Standard', // Label
+        'my_textbox_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed (General Settings)
+        'price_member_month', // Name of our section
+        array( // The $args
+            'standard_1_month' // Should match Option ID
+        )  
+	); 
+	
+	add_settings_field( // Option 1
+        'premium_1_month', // Option ID
+        'Premium', // Label
+        'my_textbox_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed (General Settings)
+        'price_member_month', // Name of our section
+        array( // The $args
+            'premium_1_month' // Should match Option ID
+        )  
+	); 
+	
+
+
+	add_settings_section(  
+        'price_member_year', // Section ID 
+        'Price membership per year', // Section Title
+        'price_member_callback_year', // Callback
+        'general' // What Page?  This makes the section show up on the General Settings Page
+    );
+
+    add_settings_field( // Option 1
+        'standard_1_year', // Option ID
+        'Standard', // Label
+        'my_textbox_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed (General Settings)
+        'price_member_year', // Name of our section
+        array( // The $args
+            'standard_1_year' // Should match Option ID
+        )  
+	); 
+	
+	add_settings_field( // Option 1
+        'premium_1_year', // Option ID
+        'Premium', // Label
+        'my_textbox_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed (General Settings)
+        'price_member_year', // Name of our section
+        array( // The $args
+            'premium_1_year' // Should match Option ID
+        )  
+	); 
+	
+
+    register_setting('general','standard_1_year', 'esc_attr');
+	register_setting('general','premium_1_year', 'esc_attr');
+
+
  
+    register_setting('general','standard_1_month', 'esc_attr');
+	register_setting('general','premium_1_month', 'esc_attr');
+	
+
     register_setting('general','trial_standard_1_month', 'esc_attr');
+    register_setting('general','trial_premium_1_month', 'esc_attr');
 }
 
-function my_section_options_callback() { // Section Callback
-    echo '<p>Information price membership</p>';  
+function price_member_trial_callback() { // Section Callback
+    echo '<p>Price for trial 1 month</p>';  
 }
+
+function price_member_callback() { // Section Callback
+    echo '<p>Price for member per month</p>';  
+}
+
+function price_member_callback_year() { // Section Callback
+    echo '<p>Price for member per year</p>';  
+}
+
 
 function my_textbox_callback($args) {  // Textbox Callback
     $option = get_option($args[0]);
-    echo '<input type="number" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" />';
+    echo '<input type="number" step="0.01" placeholder="$USD price" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" />';
 }
