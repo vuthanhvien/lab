@@ -26,6 +26,16 @@ $user = wp_get_current_user();
 		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
 		<link rel="stylesheet" id="twentytwenty-style-css" href="http://192.168.64.2/wp-content/themes/twentytwenty/custom.css?ver=1.1" type="text/css" media="all">
 		<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700&display=swap&subset=vietnamese" rel="stylesheet">
+
+        <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+  
+        <link href="https://sandbox.vnpayment.vn/paymentv2/lib/vnpay/vnpay.css" rel="stylesheet"/>
+        <script src="https://sandbox.vnpayment.vn/paymentv2/lib/vnpay/vnpay.js"></script>
+
+
 		<?php wp_head(); ?>
 
 	</head>

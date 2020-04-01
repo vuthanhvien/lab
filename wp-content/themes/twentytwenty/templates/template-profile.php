@@ -10,15 +10,10 @@
 
 
 $user = wp_get_current_user();
-
-
-$user = wp_get_current_user();
 if($user->exists()){
 }else{
     wp_redirect('/login');
-
 }
-
 
 
 get_header();
@@ -35,9 +30,13 @@ get_header();
     <?php
     
     echo json_encode($user, JSON_PRETTY_PRINT);
+    $fields =  get_fields('user_'.$user->ID);
 
+    var_dump($fields);
     ?>
     </pre>
+
+    <a href="/payment" >Payment</a>
 
 <p class="auth-redirect">
 

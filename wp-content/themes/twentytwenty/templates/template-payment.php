@@ -10,53 +10,7 @@
 
 
 $user = wp_get_current_user();
-//Tải code demo tại: https://goo.gl/4mjkd2
-
-$vnp_Url = "http://sandbox.vnpayment.vn/paymentv2/vpcpay.htm";
-$vnp_Returnurl = "/payment-confirm.php";
-$vnp_TmnCode = "";//Mã website tại VNPAY 
-$vnp_HashSecret = ""; //Chuỗi bí mật
-
-$vnp_TxnRef = date('YmdHis');//Mã đơn hàng. Trong thực tế Merchant cần insert đơn hàng vào DB và gửi mã này sang VNPAY
-$vnp_OrderInfo = $_POST['orderDesc'];
-$vnp_OrderType = $_POST['ordertype'];
-$vnp_Amount = $_POST['amount'] * 100;
-$vnp_Locale = $_POST['language'];
-$vnp_IpAddr = $_SERVER['REMOTE_ADDR'];
-$inputData = array(
-    "vnp_Version" => "2.0.0",
-    "vnp_TmnCode" => $vnp_TmnCode,
-    "vnp_Amount" => $vnp_Amount,
-    "vnp_Command" => "pay",
-    "vnp_CreateDate" => date('YmdHis'),
-    "vnp_CurrCode" => "VND",
-    "vnp_IpAddr" => $vnp_IpAddr,
-    "vnp_Locale" => $vnp_Locale,   
-    "vnp_OrderInfo" => $vnp_OrderInfo,
-    "vnp_OrderType" => $vnp_OrderType,
-    "vnp_ReturnUrl" => $vnp_Returnurl,
-    "vnp_TxnRef" => $vnp_TxnRef,    
-);
-ksort($inputData);
-$query = "";
-$i = 0;
-$hashdata = "";
-foreach ($inputData as $key => $value) {
-    if ($i == 1) {
-        $hashdata .= '&' . $key . "=" . $value;
-    } else {
-        $hashdata .= $key . "=" . $value;
-        $i = 1;
-    }
-    $query .= urlencode($key) . "=" . urlencode($value) . '&';
-}
-
-$vnp_Url = $vnp_Url . "?" . $query;
-if (isset($vnp_HashSecret)) {
-    $vnpSecureHash = hash('sha256',$vnp_HashSecret . $hashdata);
-    $vnp_Url .= 'vnp_SecureHashType=SHA256&vnp_SecureHash=' . $vnpSecureHash;
-}
-
+//Tải code demo tại: https://goo.gl/4mjkd2 
 
 get_header();
 
@@ -64,19 +18,119 @@ get_header();
 ?>
 
 <main id="site-content" role="main">
-<div class="auth-page" >
 <div class="section-inner" >
 <div class="profile">
-    <h4>Profile</h4>
-    <?php
-    var_dump($user);
+<div class="container">
+            <div class="header clearfix">
+                <h3 class="text-muted">VNPAY DEMO</h3>
+            </div>
+            <h3>Tạo mới đơn hàng</h3>
+            <div class="table-responsive">
+                <form action="/vnpay.php" id="create_form" method="post">       
 
-    ?>
+                    <div class="form-group">
+                        <label for="language">Loại hàng hóa </label>
+                        <select name="order_type" id="order_type" class="form-control">
+                            <option value="topup">Nạp tiền điện thoại</option>
+                            <option value="billpayment">Thanh toán hóa đơn</option>
+                            <option value="fashion">Thời trang</option>
+                            <option value="other">Khác - Xem thêm tại VNPAY</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="order_id">Mã hóa đơn</label>
+                        <input class="form-control" id="order_id" name="order_id" type="text" value="<?php echo date("YmdHis") ?>"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Số tiền</label>
+                        <input class="form-control" id="amount"
+                               name="amount" type="number" value="10000"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="order_desc">Nội dung thanh toán</label>
+                        <textarea class="form-control" cols="20" id="order_desc" name="order_desc" rows="2">Noi dung thanh toan</textarea>
+                    </div>
+                    <!-- <div class="form-group">
+                        <label for="bank_code">Ngân hàng</label>
+                        <select name="bank_code" id="bank_code" class="form-control">
+                            <option value="">Không chọn</option>
+                            <option value="NCB"> Ngan hang NCB</option>
+                            <option value="AGRIBANK"> Ngan hang Agribank</option>
+                            <option value="SCB"> Ngan hang SCB</option>
+                            <option value="SACOMBANK">Ngan hang SacomBank</option>
+                            <option value="EXIMBANK"> Ngan hang EximBank</option>
+                            <option value="MSBANK"> Ngan hang MSBANK</option>
+                            <option value="NAMABANK"> Ngan hang NamABank</option>
+                            <option value="VNMART"> Vi dien tu VnMart</option>
+                            <option value="VIETINBANK">Ngan hang Vietinbank</option>
+                            <option value="VIETCOMBANK"> Ngan hang VCB</option>
+                            <option value="HDBANK">Ngan hang HDBank</option>
+                            <option value="DONGABANK"> Ngan hang Dong A</option>
+                            <option value="TPBANK"> Ngân hàng TPBank</option>
+                            <option value="OJB"> Ngân hàng OceanBank</option>
+                            <option value="BIDV"> Ngân hàng BIDV</option>
+                            <option value="TECHCOMBANK"> Ngân hàng Techcombank</option>
+                            <option value="VPBANK"> Ngan hang VPBank</option>
+                            <option value="MBBANK"> Ngan hang MBBank</option>
+                            <option value="ACB"> Ngan hang ACB</option>
+                            <option value="OCB"> Ngan hang OCB</option>
+                            <option value="IVB"> Ngan hang IVB</option>
+                            <option value="VISA"> Thanh toan qua VISA/MASTER</option>
+                        </select>
+                    </div> -->
+                    <!-- <div class="form-group">
+                        <label for="language">Ngôn ngữ</label>
+                        <select name="language" id="language" class="form-control">
+                            <option value="vn">Tiếng Việt</option>
+                            <option value="en">English</option>
+                        </select>
+                    </div> -->
+
+                    <!-- <button type="submit" class="btn btn-primary" id="btnPopup">Thanh toán Popup</button> -->
+                    <button type="submit" class="btn btn-default">Thanh toán Redirect</button>
+
+                </form>
+            </div>
+            <p>
+                &nbsp;
+            </p>
+            <footer class="footer">
+                <p>&copy; VNPAY 2015</p>
+            </footer>
+        </div>  
+
+        <script type="text/javascript">
+
+        console.log(window.vnpay);
+            $("#btnPopup").click(function () {
+                var postData = $("#create_form").serialize();
+                var submitUrl = $("#create_form").attr("action");
+                $.ajax({
+                    type: "POST",
+                    url: submitUrl,
+                    data: postData,
+                    dataType: 'JSON',
+                    success: function (x) {
+                        console.log(x);
+                        if (x.code === '00') {
+                            if (window.vnpay) {
+                                vnpay.open({width: 768, height: 600, url: x.data});
+                            } else {
+                                location.href = x.data;
+                            }
+                            return false;
+                        } else {
+                            alert(x.Message);
+                        }
+                    }
+                });
+                return false;
+            });
+        </script>
 
 <p class="auth-redirect">
 
 </p>
-</div>
 </div>
 </main><!-- #site-content -->
 
