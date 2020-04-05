@@ -7432,7 +7432,7 @@ function create_custom_type_library()
             'revisions',
             'custom-fields'
         ), //Các tính năng được hỗ trợ trong post type
-        'taxonomies' => array( 'library_types', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
+        'taxonomies' => array( 'category', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
         'hierarchical' => false, //Cho phép phân cấp, nếu là false thì post type này giống như Post, true thì giống như Page
         'public' => true, //Kích hoạt post type
         'show_ui' => true, //Hiển thị khung quản trị như Post/Page
@@ -7484,7 +7484,7 @@ function create_custom_type_insiders()
             'revisions',
             'custom-fields'
         ), //Các tính năng được hỗ trợ trong post type
-        'taxonomies' => array( 'insiders_type', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
+        'taxonomies' => array( 'category', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
         'hierarchical' => false, //Cho phép phân cấp, nếu là false thì post type này giống như Post, true thì giống như Page
         'public' => true, //Kích hoạt post type
         'show_ui' => true, //Hiển thị khung quản trị như Post/Page
@@ -7536,7 +7536,7 @@ function create_custom_type_event()
             'revisions',
             'custom-fields'
         ), //Các tính năng được hỗ trợ trong post type
-        'taxonomies' => array( 'event_types', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
+        'taxonomies' => array( 'category', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
         'hierarchical' => false, //Cho phép phân cấp, nếu là false thì post type này giống như Post, true thì giống như Page
         'public' => true, //Kích hoạt post type
         'show_ui' => true, //Hiển thị khung quản trị như Post/Page
@@ -7588,7 +7588,7 @@ function create_custom_type_podcast()
             'revisions',
             'custom-fields'
         ), //Các tính năng được hỗ trợ trong post type
-        'taxonomies' => array( 'podcast_types', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
+        'taxonomies' => array( 'category', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
         'hierarchical' => false, //Cho phép phân cấp, nếu là false thì post type này giống như Post, true thì giống như Page
         'public' => true, //Kích hoạt post type
         'show_ui' => true, //Hiển thị khung quản trị như Post/Page
@@ -7640,7 +7640,7 @@ function create_custom_type_news()
             'revisions',
             'custom-fields'
         ), //Các tính năng được hỗ trợ trong post type
-		'taxonomies' => array( 'podcast_types', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
+		'taxonomies' => array( 'category', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
         'hierarchical' => false, //Cho phép phân cấp, nếu là false thì post type này giống như Post, true thì giống như Page
         'public' => true, //Kích hoạt post type
         'show_ui' => true, //Hiển thị khung quản trị như Post/Page
@@ -7696,7 +7696,7 @@ function create_custom_type_job()
             'revisions',
             'custom-fields'
         ), //Các tính năng được hỗ trợ trong post type
-        'taxonomies' => array( 'job_types', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
+        'taxonomies' => array( 'category', 'post_tag' ), //Các taxonomy được phép sử dụng để phân loại nội dung
         'hierarchical' => false, //Cho phép phân cấp, nếu là false thì post type này giống như Post, true thì giống như Page
         'public' => true, //Kích hoạt post type
         'show_ui' => true, //Hiển thị khung quản trị như Post/Page

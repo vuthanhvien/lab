@@ -776,11 +776,17 @@ function create_shortcode_posts($args , $content) {
 	$limit = $args['limit'];
 	$order = $args['order'];
 	$orderby = $args['orderby'];
+	$offset = $args['offset'];
+	$fieldString = $args['fields'];
+	$className = $args['classname'];
+	$parentclassname = $args['parentclassname'];
+	$fields = explode(',', $fieldString);
 	$query = array(  
         'post_type' => $post_type ? $post_type : array('news', 'library', 'podcast', 'event', 'job', 'insiders'),
         'post_status' => 'publish',
 		'posts_per_page' => $limit ? $limit : 3,
 		'order'=> $order ? $order : 'DESC',
+		'offset'=>$offset ? $offset : 0,
 		'orderby'=> $orderby ? $orderby : 'date',
     );
 
@@ -788,21 +794,57 @@ function create_shortcode_posts($args , $content) {
 	
 	$html = '';
 
-        
 	if ( $the_query->have_posts() ) :
+		$index = 1;
 		while ( $the_query->have_posts() ) : $the_query->the_post();
 			$featured_img_url = get_the_post_thumbnail(); 
 
-			$html .= '<a class="post" href="'.get_the_permalink() .'">';
-			$html .= '<div class="img">'.$featured_img_url.'</div>'; 
-			$html .= '<div class="content">';
-			$html .= '<h5>'. get_the_title().'</h5>'; 
-			$html .= '<p>Min read: '. get_field('min-read').'</p>'; 
-			$html .= '</div>'; 
+			$cates = get_the_category();
+			if($cates){
+				$cate = $cates[0];
+			}
+			$cateName = $cate->cat_name;
+			if(!$cateName){
+				$cateName = get_post_type();
+			}
+
+			$html .= '<a class="post '.$className.'" href="'.get_the_permalink() .'">';
+
+			foreach ($fields as &$value) {
+				if($value == 'index'){
+					$html .= '<div class="index">0'.$index.'</div>'; 
+				}
+				if($value == 'img'){
+					$html .= '<div class="img">'.$featured_img_url.'</div>'; 
+				}
+				if($value == 'title'){
+					$html .= '<h5 class="title">'. get_the_title().'</h5>'; 
+				}
+				if($value == 'min-read'){
+					$html .= '<p class="min-read">Min read: '. get_field('min-read').'</p>'; 
+				}
+				if($value == 'content'){
+					$html .= '<div class="content">'.get_the_excerpt().'</div>'; 
+				}
+				if($value == 'category'){
+					$html .= '<div class="category">'.$cateName.'</div>'; 
+				}
+				if($value == 'author'){
+					$html .= '<div class="author">'.get_avatar( get_the_author_meta( 'ID' )).'<span>'.get_the_author_meta('display_name').'</span></div>'; 
+				}
+				if($value == 'date'){
+					$html .= '<div class="content">'.get_the_date().'</div>'; 
+				}
+				
+			}
+
 			$html .= '</a>'; 
+			$index = $index + 1;
 		endwhile;
 		endif;
-
+	if($parentclassname){
+		return '<div class="'.$parentclassname.'">'.$html.'</div>';
+	}
 
 	return $html;
 }
@@ -815,7 +857,27 @@ add_shortcode( 'posts', 'create_shortcode_posts' );
 
 function create_shortcode_signup($args , $content) {
 
-	$html  = 'signup';
+	$html  = '<div class="main-banner" style="background-image: url(/assets/night.jpg)">';
+	$html  .= '<div class="section-inner">';
+	$html  .= '<div class="main-banner-left"></div>';
+	$html  .= '<div class="main-banner-right">
+		<div class="form">
+			<h3>Get a Daily dose of digitalMinds Emailed to You Every Morning</h3>
+			<div>
+			<form action="/signup">
+			<select>
+				<option>Digitam-mind Radar</option>
+				<option>Digitam-mind Radar</option>
+				<option>Digitam-mind Radar</option>
+			</select>
+			<input name="email" placeholder="Your email" />
+			<button type="submit">SIGN UP</button>
+			</form>
+			</div>
+		</div>
+		</div>';
+	$html .= '</div>';
+	$html .= '</div>';
 	return $html;
 }
 add_shortcode( 'signup', 'create_shortcode_signup' );

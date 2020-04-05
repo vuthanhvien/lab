@@ -25,10 +25,7 @@
 
 	?>
 
-	<div class="post-inner <?php echo is_page_template( 'templates/template-full-width.php' ) ? '' : 'thin'; ?> ">
-
-		<div class="section-inner">
-
+	<div class="<?php echo is_page_template( 'templates/template-full-width.php' ) ? '' : 'thin'; ?> ">
 			<?php
 			if ( is_search() || ! is_singular() && 'summary' === get_theme_mod( 'blog_content', 'full' ) ) {
 				the_excerpt();
@@ -36,8 +33,6 @@
 				the_content( __( 'Continue reading', 'twentytwenty' ) );
 			}
 			?>
-
-		</div><!-- .entry-content -->
 
 	</div><!-- .post-inner -->
 
@@ -54,7 +49,6 @@
 
 		edit_post_link();
 
-		// Single bottom post meta.
 		twentytwenty_the_post_meta( get_the_ID(), 'single-bottom' );
 
 		if ( is_single() ) {
@@ -68,11 +62,11 @@
 
 	<?php
 
-	if ( is_single() ) {
+	// if ( is_single() ) {
 
-		get_template_part( 'template-parts/navigation' );
+	// 	get_template_part( 'template-parts/navigation' );
 
-	}
+	// }
 
 	/**
 	 *  Output comments wrapper if it's a post, or if comments are open,

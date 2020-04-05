@@ -35,18 +35,15 @@ get_header();
 
 			$query->the_post(); 
 			$item = '';
-			$item .= '<a href="'.get_the_permalink().'" class="item">';
-			$item .= '<div class="image">'.get_the_post_thumbnail().'
-						<div class="tag">'.$category.'</div>
-						</div>';
+			$item .= '<a href="'.get_the_permalink().'" class="post">';
+			$item .= '<div class="img">'.get_the_post_thumbnail().'</div>';
 			$item .= '<h3 class="title">'.get_the_title().'</h3>';
 			$item .= '<p class="content">'.get_the_excerpt().'</p>';
-			$item .= '<div class="item-footer">
-						<div class="avatar">'.get_avatar(get_the_author_meta('ID')).'</div>
-						<p>'.get_the_author().'</p><p>|</p>
-						<p>'.get_the_date().'</p>
-						
+			$item .= '<div class="author">'.get_avatar(get_the_author_meta('ID')).'
+						<span>'.get_the_author().'</span><span>|</span>
+						<span>'.get_the_date().'</span>
 						</div>';
+			$item .= '<div class="category">'.$category.'</div>';
 			$item .= '</a>';
 
 			echo $item;
@@ -81,5 +78,6 @@ get_header();
 </div>
 </main><!-- #site-content -->
 
+<?php echo do_shortcode('[signup]'); ?>
 <?php get_template_part( 'template-parts/footer-menus-widgets' ); ?>
 <?php get_footer(); ?>
