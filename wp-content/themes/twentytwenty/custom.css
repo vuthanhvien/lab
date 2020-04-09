@@ -373,7 +373,7 @@ body #site-footer {
     display: flex;
 }
 
-.list-post .post .author span  {
+.list-post .post .author span {
     color: #6F7885;
     font-size: 12px;
     margin: 0;
@@ -594,9 +594,10 @@ body #site-footer {
     text-transform: uppercase;
 }
 
-#post-2 .section-list .podcast .post{
+#post-2 .section-list .podcast .post {
     position: relative;
 }
+
 #post-2 .section-list .podcast .post:hover img {
     height: 200px;
     transition: height 0.2s ease-in-out;
@@ -621,7 +622,7 @@ body #site-footer {
     margin: 0;
     padding-left: 90px;
 
-    
+
 }
 
 #post-2 .section-list .podcast .post img {
@@ -645,31 +646,36 @@ body #site-footer {
     padding-bottom: 30px;
     border-bottom: 1px solid #ddd;
 }
-#post-2 .section-list .library .post.first .img{
+
+#post-2 .section-list .library .post.first .img {
     width: 100%;
     height: 250px;
     object-position: center;
     object-fit: cover;
     overflow: hidden;
     margin-bottom: 30px;
-    
+
 }
-#post-2 .section-list .library .post.first .content{
+
+#post-2 .section-list .library .post.first .content {
     font-size: 14px;
-    color:#6F7885;
+    color: #6F7885;
     padding: 0 30px;
     text-align: justify;
 }
-#post-2 .section-list .library .post.first .title{
+
+#post-2 .section-list .library .post.first .title {
     font-size: 22px;
-    color:#6F7885;
+    color: #6F7885;
     padding: 5px 30px;
 }
+
 #post-2 .section-list .library .post.first .min-read {
     padding: 5px 30px;
     margin-top: 30px;
 }
-#post-2 .section-list .library .post.first .author{
+
+#post-2 .section-list .library .post.first .author {
     position: absolute;
     top: 180px;
     left: 30px;
@@ -678,7 +684,8 @@ body #site-footer {
     align-items: center;
     font-size: 12px;
 }
-#post-2 .section-list .library .post.first .author img{
+
+#post-2 .section-list .library .post.first .author img {
     height: 30px;
     width: 30px;
     border-radius: 15px;
@@ -688,21 +695,24 @@ body #site-footer {
 
 #section-insiders {
     background: #0D87D0;
-    padding:  40px 0;
+    padding: 40px 0;
 }
-#section-insiders h4{
+
+#section-insiders h4 {
     color: white;
 }
-#section-insiders p{
+
+#section-insiders p {
     color: white;
     font-size: 14px;
 }
-#section-insiders .wp-block-group__inner-container{
+
+#section-insiders .wp-block-group__inner-container {
     max-width: 1170px;
     margin: 0 auto;
 }
 
-#section-insiders  .post{
+#section-insiders .post {
     display: inline-block;
     position: relative;
     width: calc(50% - 10px);
@@ -710,16 +720,19 @@ body #site-footer {
     overflow: hidden;
     border-radius: 10px;
     margin-top: 15px;
-   
+
 }
-#section-insiders  .post:nth-child(2),
-#section-insiders  .post:nth-child(4){
+
+#section-insiders .post:nth-child(2),
+#section-insiders .post:nth-child(4) {
     margin-left: 20px;
 }
-#section-insiders  .post .img {
+
+#section-insiders .post .img {
     height: 100%;
 }
-#section-insiders  .post .img img{
+
+#section-insiders .post .img img {
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -727,7 +740,8 @@ body #site-footer {
     object-position: center;
 
 }
-#section-insiders  .post .title{
+
+#section-insiders .post .title {
     color: white;
     font-size: 16px;
     position: absolute;
@@ -740,7 +754,7 @@ body #site-footer {
     padding-bottom: 40px;
 }
 
-#section-insiders  .post .min-read{
+#section-insiders .post .min-read {
     font-size: 11px;
     position: absolute;
     bottom: 0;
@@ -748,37 +762,38 @@ body #site-footer {
     margin: 0;
     background: rgba(0, 0, 0, 0.2);
     width: 100%;
-    padding:10px 20px;
+    padding: 10px 20px;
     color: rgb(183, 191, 203);
     text-transform: uppercase;
 }
 
 
-#section-insiders  .post .author{
+#section-insiders .post .author {
     position: absolute;
-} 
+}
 
-#section-insiders .wp-block-column:nth-child(1) .post{
+#section-insiders .wp-block-column:nth-child(1) .post {
     width: 100%;
     height: 520px;
 }
 
-#section-events{
-    
+#section-events {
+
     padding: 40px 0;
     background: white;
 }
-#section-events .wp-block-group__inner-container{
-max-width: 1170px; 
+
+#section-events .wp-block-group__inner-container {
+    max-width: 1170px;
     margin: 0 auto;
 }
 
 
-#section-events .post:nth-child(1){
+#section-events .post:nth-child(1) {
     width: 50%;
 }
 
-#section-events .post{
+#section-events .post {
     display: inline-block;
     width: 25%;
     vertical-align: text-top;
@@ -786,11 +801,12 @@ max-width: 1170px;
     position: relative;
 }
 
-#section-events  .post-slide{
+#section-events .post-slide {
     white-space: nowrap;
     overflow: auto;
 }
-#section-events  .post-slide .title{
+
+#section-events .post-slide .title {
     white-space: normal;
     position: absolute;
     bottom: 0;
@@ -802,13 +818,13 @@ max-width: 1170px;
     color: white;
     font-size: 16px;
 }
- 
-#section-events .post .img img{
+
+#section-events .post .img img {
     height: 500px;
     object-position: center;
     object-fit: cover;
     width: 100%;
-    
+
 }
 
 #section-partner {
@@ -816,10 +832,328 @@ max-width: 1170px;
     margin: 0 auto;
     padding: 40px 0;
 }
-#section-partner .list-post-slide{
+
+#section-partner .list-post-slide {
     white-space: nowrap;
     overflow: hidden;
 }
-#section-partner .list-post-slide .title{
+
+#section-partner .list-post-slide .title {
     white-space: normal;
+}
+
+
+.post-detail {}
+
+.post-banner {
+    width: 100%;
+    height: 500px;
+    position: relative;
+    display: flex;
+    align-items: center;
+
+}
+
+.post-banner>img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+}
+
+.post-banner-content {
+    position: relative;
+    max-width: 750px;
+    margin: 0 auto;
+    z-index: 1;
+}
+
+.post-banner-content h1 {
+    font-size: 46px;
+    color: white;
+    margin: 0;
+}
+
+.post-banner-content h3 {
+    font-size: 12px;
+    color: white;
+    margin: 0;
+    text-transform: uppercase;
+    margin-top: 21px;
+}
+
+
+.post-main {
+    max-width: 1170px;
+    margin: 0 auto;
+  
+}
+
+.post-sidebar {
+    display: inline-block;
+    width: 130px;
+    vertical-align: top;
+    padding-top: 100px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+}
+
+.post-share {
+    width: 70px;
+    text-align: center;
+    background: white;
+    cursor: pointer;
+    color: #666;
+    padding: 10px 0;
+    margin-left: 30px;
+    margin-top: 20px;
+    display: block;
+   
+}
+
+.post-share span {
+    display: block;
+    font-size: 12px;
+}
+
+.post-sidebar p {
+    color: #666;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-align: center;
+    
+}
+
+.post-content {
+    display: inline-block;
+    width: calc(100% - 135px);
+    background: white;
+    vertical-align: top;
+    border-radius: 5px;
+    margin-top: -120px;
+    z-index: 1;
+    position: relative;
+
+}
+
+.post-header {
+    height: 120px;
+    background: white;
+    display: flex;
+    align-items: center;
+    padding-left: 80px;
+    padding-right: 80px;
+
+    font-size: 13px;
+    color: #6F7885;
+    font-weight: bold;
+
+}
+.post-header .icon{
+    margin-left: 50px;
+    margin-right: 10px;
+}
+
+.post-author img{
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 20px;
+    display: inline-block;
+    margin-right: 10px;
+
+}
+
+.post-author-name{
+    font-size: 13px;
+    color: #6F7885;
+    font-weight: bold;
+}
+.post-space{
+    flex: 1
+}
+.post-text {
+    padding: 80px;
+}
+
+.post-text hr {
+    border-color: #EEEEEE;
+    margin: 30px 0;
+}
+
+.post-text button.btn {
+    height: 50px;
+    background-color: #ccc;
+    border-radius: 4px;
+    min-width: 50px;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    cursor: pointer;
+}
+
+.post-text button.btn:hover{
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.post-text button.btn>* {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.post-text button.btn img {
+    display: inline-block;
+}
+
+.post-text button.btn.btn-warning {
+    background-color: #F8A54A;
+    color: white;
+}
+
+.post-comment-out {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #ccc;
+    z-index: 10;
+}
+
+.post-comment-out .post-comment {
+    background: white;
+    width: 700px;
+    right: 0;
+    position: absolute;
+}
+
+
+.post-next {}
+
+.post-next h3 {
+    color: #393E46;
+    font-size: 34px;
+    padding-left: 80px;
+    padding-right: 80px;
+    margin-top: 0;
+}
+
+.post-next .post {
+    display: block;
+    min-height: 210px;
+    padding-top: 40px;
+    padding-left: 80px;
+    padding-right: 80px;
+
+    /* border-top: 1px solid #eee; */
+    border-bottom: 1px solid #eee;
+    background: #fefefe;
+}
+
+.post-next .post img {
+    width: 200px;
+    height: 140px;
+    object-fit: cover;
+    object-position: center;
+    float: left;
+}
+
+.post-next .post .category,
+.post-next .post .title {
+    margin: 0;
+    padding-left: 230px;
+}
+
+
+.post-next .post .title {
+    color: #393E46;
+    font-size: 34px;
+    margin-top: 25px;
+}
+
+.post-next .post .category {
+    color: #0D87D0;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+.post-relate-outer {
+    background: white;
+    margin-top: 150px;
+    padding-top: 70px;
+}
+
+.post-relate-outer h3{
+    font-size: 34px;
+    color: #393E46;
+    text-align: center;
+    margin: 0;
+    margin-bottom: 30px;
+}
+
+.post-relate {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding-bottom: 120px;
+    display: flex;
+}
+
+.post-relate .post {
+    display: inline-block;
+    width: calc(50% - 30px);
+    height: 240px;
+    overflow: hidden;
+    margin-top: 30px;
+    position: relative;
+
+}
+
+.post-relate .post:nth-child(2),
+.post-relate .post:nth-child(4) {
+    margin-left: 30px;
+}
+
+.post-relate .post .img {
+    height: 100%;
+    width: 100%;
+}
+
+.post-relate .post img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.post-relate .post .title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 16px;
+    color: white;
+    width: 100%;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.2);
+    margin: 0;
+}
+
+.post-relate .post-relate-left {
+    width: 50%;
+}
+
+.post-relate .post-relate-right {
+    width: 50%;
+}
+.post-relate .post-relate-left .post {
+    width: calc(100% - 30px);
+    height: 515px;
+}
+.post-relate .post-relate-left .post .title{
+    font-size: 22px;
 }

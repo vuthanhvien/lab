@@ -32,11 +32,16 @@ get_header();
 	if ($query->have_posts()) {
 		echo '<div class="list-post">';
 		while ($query->have_posts()) { 
-
 			$query->the_post(); 
+
+			$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content , $matches);
+  			$first_img = $matches [1] [0];
+			$img = get_the_post_thumbnail() ? get_the_post_thumbnail() :  '<img src="'.$first_img.'">' ;
+			
+
 			$item = '';
 			$item .= '<a href="'.get_the_permalink().'" class="post">';
-			$item .= '<div class="img">'.get_the_post_thumbnail().'</div>';
+			$item .= '<div class="img">'.$img.'</div>';
 			$item .= '<h3 class="title">'.get_the_title().'</h3>';
 			$item .= '<p class="content">'.get_the_excerpt().'</p>';
 			$item .= '<div class="author">'.get_avatar(get_the_author_meta('ID')).'
